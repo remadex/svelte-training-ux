@@ -59,6 +59,12 @@
     >
       Ceci est le pain du goulagwe
     </p>
+    <button
+      class="m-8 p-2 bg-red-600 text-white"
+      on:click|once|trusted={() => alert("Au gogole")}
+    >
+      Alerte au gogole
+    </button>
     <ul class="grid grid-cols-2 gap-x-4 gap-y-8 mt-8 lg:grid-cols-4">
       {#each imageDetails as detail}
         <!-- <ImageDetail name={detail.name} src={detail.src} size={detail.size} /> -->
