@@ -36,6 +36,12 @@
       size: "1.2GB",
     },
   ];
+
+  const handleDelete = (e) => {
+    console.log(e);
+    console.log(e.detail); // On recoit les paramètres du dispatch dans le détail
+    imageDetails = imageDetails.filter((img) => img.id != e.detail);
+  };
 </script>
 
 <div class="bg-slate-50 flex flex-col min-h-screen">
@@ -56,7 +62,7 @@
     <ul class="grid grid-cols-2 gap-x-4 gap-y-8 mt-8 lg:grid-cols-4">
       {#each imageDetails as detail}
         <!-- <ImageDetail name={detail.name} src={detail.src} size={detail.size} /> -->
-        <ImageDetail {...detail} />
+        <ImageDetail {...detail} on:deleteImg={handleDelete} />
       {/each}
     </ul>
   </main>

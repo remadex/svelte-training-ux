@@ -1,7 +1,15 @@
 <script>
+  import { createEventDispatcher } from "svelte";
+
+  export let id;
   export let name;
   export let size = "1000TO";
   export let src;
+  const dispatch = createEventDispatcher();
+
+  const deleteThisFuckingImage = () => {
+    dispatch("deleteImg", id);
+  };
 </script>
 
 <li class="relative">
@@ -13,9 +21,6 @@
       alt=""
       class="object-cover w-full pointer-events-none group-hover:opacity-75"
     />
-    <button type="button" class="absolute inset-0 focus:outline-none">
-      <span class="sr-only">View details for {name}</span>
-    </button>
   </div>
   <p
     class="block mt-2 text-sm font-medium text-gray-900 truncate pointer-events-none"
@@ -27,6 +32,6 @@
   </p>
   <button
     class="block px-2 py-1 mx-auto text-sm text-right text-white duration-200 bg-red-500 hover:bg-red-300"
-    >Delete</button
+    on:click={deleteThisFuckingImage}>Delete</button
   >
 </li>
